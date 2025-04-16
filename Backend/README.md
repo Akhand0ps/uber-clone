@@ -89,10 +89,62 @@ Content-Type: application/json
       "firstname": "John",
       "lastname": "Doe"
     },
-
-
-
-
-```}  }    "email": "user@example.com"    "email": "user@example.com"
+    "email": "user@example.com"
   }
 }
+```
+
+---
+
+## /users/profile Endpoint
+
+### Description
+The `/users/profile` endpoint retrieves the authenticated user’s profile information. A valid JWT token must be provided either via a cookie or the Authorization header.
+
+### HTTP Method
+GET
+
+### Authentication
+Required. The request must pass through the authentication middleware.
+
+### Status Codes
+- **200 OK:** Returns the authenticated user's profile details.
+- **401 Unauthorized:** Returned if the JWT token is missing or invalid.
+
+##### Example Response (200 OK)
+```json
+{
+  "user": {
+    "_id": "user_id",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "user@example.com"
+  }
+}
+```
+
+---
+
+## /users/logout Endpoint
+
+### Description
+The `/users/logout` endpoint logs the user out by clearing the token cookie and blacklisting the token to prevent further use.
+
+### HTTP Method
+GET
+
+### Authentication
+Required. The request must include a valid JWT token sent via cookie or the Authorization header.
+
+### Status Codes
+- **200 OK:** Logout successful. Returns a confirmation message.
+- **401 Unauthorized:** Returned if the token is missing or invalid.
+
+##### Example Response (200 OK)
+```json
+{
+  "message": "Logout successful"
+}
+```
