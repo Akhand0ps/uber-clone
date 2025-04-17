@@ -148,3 +148,79 @@ Required. The request must include a valid JWT token sent via cookie or the Auth
   "message": "Logout successful"
 }
 ```
+
+---
+
+# Captain API Endpoints
+
+## /captains/register Endpoint
+
+### Description
+The `/captains/register` endpoint allows for captain registration with vehicle information. It validates required fields and creates a new captain account.
+
+### HTTP Method
+POST
+
+### Request Format
+Content-Type: application/json
+
+#### Required Data
+- **email**: Valid email address
+- **fullname**: An object containing:
+  - **firstname**: String (minimum 3 characters)
+  - **lastname**: String (optional)
+- **password**: String (minimum 6 characters)
+- **vehicle**: An object containing:
+  - **color**: String (minimum 3 characters)
+  - **plate**: String (minimum 3 characters)
+  - **capacity**: Integer (minimum 1)
+  - **vehicleType**: String (must be one of: 'car', 'motorcycle', 'auto')
+
+##### Example Request Body
+```json
+{
+  "email": "captain@example.com",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Smith"
+  },
+  "password": "securePass123",
+  "vehicle": {
+    "color": "Black",
+    "plate": "ABC123",
+    "capacity": 4,
+    "vehicleType": "car"
+  }
+}
+```
+
+### Status Codes
+- **201 Created:** Captain successfully registered
+- **400 Bad Request:** Validation errors. Returns an array of error messages for:
+  - Invalid email format
+  - First name less than 3 characters
+  - Password less than 6 characters
+  - Vehicle color less than 3 characters
+  - Vehicle plate less than 3 characters
+  - Capacity less than 1
+  - Invalid vehicle type
+
+##### Example Response (201 Created)
+```json
+{
+  "captain": {
+    "_id": "captain_id",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Smith"
+    },
+    "email": "captain@example.com",
+    "vehicle": {
+      "color": "Black",
+      "plate": "ABC123",
+      "capacity": 4,
+      "vehicleType": "car"
+    }
+  }
+}
+```
