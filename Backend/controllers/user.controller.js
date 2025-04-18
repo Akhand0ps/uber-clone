@@ -30,7 +30,7 @@ module.exports.resgisterUser = async(req,res,next)=>{
         password:hashedPassword
     });
 
-    const token = user.generateAuthToken();
+    const token = await user.generateAuthToken();
 
     res.status(201).json({token,user});
     
