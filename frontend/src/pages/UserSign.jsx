@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const UserSign=() =>{
 
-
     const [email,setEmail]=useState('');
     const[password,setPassword]=useState('');
     const[firstname,setFirstname]=useState('');
@@ -18,7 +17,7 @@ const UserSign=() =>{
             e.preventDefault();
 
             setUserData({
-                username:{
+                fullname:{
                     firstname:firstname,
                     lastname:lastname
                 },
@@ -45,7 +44,7 @@ const UserSign=() =>{
                     submitHandler(e);
                 }}>
 
-                    <h3 className="text-base w-1/2 font-medium mb-2">What's your name</h3>
+                <h3 className="text-base w-1/2 font-medium mb-2">What's your name</h3>
                     <div className="flex gap-4">
 
                     <input  required
@@ -105,7 +104,7 @@ const UserSign=() =>{
 
             {/* <Link className="bg-[#10b461] mb-5 rounded px-4 py-2 border w-full text-lg placeholder:text-base text-white font-semibold flex items-center justify-center" to="/Captainlogin"> Sign in as Captain</Link> */}
 
-            <p className="text-sm leading-tight ">
+            <p className="text-sm l eading-tight ">
                 By signing up, you agree to our <span className="text-[#10b461]">Terms</span> and <span className="text-[#10b461]">Privacy Policy</span>
             </p>
         </div>
