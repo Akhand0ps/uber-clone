@@ -8,8 +8,10 @@ const {validationResult} = require("express-validator");
 
 const registerCaptain = async(req,res)=>{
 
+    
 
     const errors = validationResult(req);
+    
 
     if(!errors.isEmpty()){
 
@@ -47,8 +49,10 @@ const registerCaptain = async(req,res)=>{
 
 const loginCaptain = async(req,res)=>{
 
-
+    console.log(req.body);
     const errors = validationResult(req);
+    console.log(errors);
+
 
     if(!errors.isEmpty()){
 
