@@ -182,7 +182,7 @@ const CaptainSign=() =>{
                 </div>
 
                 <button
-                className="bg-[#111] mb-2 rounded px-4 py-2 border w-full text-lg placeholder:text-base text-white font-semibold" 
+                className="bg-[#111] mb-2 rounded px-4 py-2 border w-full text-lg placeholder:text-base text-white font-semibold cursor-pointer" 
                 >
                 Register</button>
             </form>

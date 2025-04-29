@@ -69,7 +69,7 @@ const UserLogin=() =>{
                     placeholder="pass@0000"/>
 
                     <button
-                    className="bg-[#111] mb-2 rounded px-4 py-2 border w-full text-lg placeholder:text-base text-white font-semibold" 
+                    className="bg-[#111] mb-2 rounded px-4 py-2 border w-full text-lg placeholder:text-base text-white font-semibold cursor-pointer" 
                     >
                     Login</button>
                 </form>
